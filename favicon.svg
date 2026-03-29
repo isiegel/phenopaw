@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Base/body of joystick -->
+  <rect x="4" y="18" width="24" height="10" rx="3" fill="#4c1d95"/>
+  <!-- Base highlight -->
+  <rect x="4" y="18" width="24" height="4" rx="3" fill="#6d28d9"/>
+
+  <!-- Stick shaft -->
+  <rect x="14" y="8" width="4" height="12" rx="2" fill="#7c3aed"/>
+
+  <!-- Stick ball/top -->
+  <circle cx="16" cy="7" r="4" fill="#a855f7"/>
+  <circle cx="14.5" cy="5.5" r="1.2" fill="#c084fc"/>
+
+  <!-- Left button (red) -->
+  <circle cx="8" cy="22" r="2.5" fill="#dc2626"/>
+  <circle cx="7.2" cy="21.2" r="0.8" fill="#fca5a5"/>
+
+  <!-- Right button (blue) -->
+  <circle cx="24" cy="22" r="2.5" fill="#2563eb"/>
+  <circle cx="23.2" cy="21.2" r="0.8" fill="#93c5fd"/>
+
+  <!-- Center button (yellow) -->
+  <circle cx="16" cy="24" r="1.8" fill="#d97706"/>
+</svg>
