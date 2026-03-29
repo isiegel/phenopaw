@@ -7,7 +7,7 @@ export default function middleware(req) {
     const [_scheme, encoded] = auth.split(' ');
     const [user, pwd] = atob(encoded).split(':');
 
-    if (user === 'admin' && pwd === 'pitfall!') {
+    if (user === process.env.SITE_USER && pwd === process.env.SITE_PASS) {
       return next();
     }
   }
