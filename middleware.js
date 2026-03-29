@@ -12,10 +12,20 @@ export default function middleware(req) {
     }
   }
 
-  return new Response('Authentication required', {
+  return new Response('Auth Required', {
     status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-    },
+    headers: { 'WWW-Authenticate': 'Basic realm="Secure Area"' },
   });
 }
+
+export const config = {
+  matcher: [
+    /*
+     * Match all paths EXCEPT those starting with:
+     * - assets
+     * - icons
+     * - favicon.ico
+     */
+    '/((?!assets|icons|favicon.ico).*)',
+  ],
+};
