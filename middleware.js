@@ -1,39 +1,34 @@
-import { next } from '@vercel/edge';
+import { NextResponse } from 'next/server';
 
 export default function middleware(req) {
-  const url = new URL(req.url);
+  const url = req.nextUrl;
 
-  // 1. SAFETY BYPASS: Don't run middleware for static files
+  // 1. Asset Bypass (Keep this to fix your image/icon issue!)
   if (
     url.pathname.startsWith('/assets') ||
     url.pathname.startsWith('/icons') ||
     url.pathname.includes('.')
   ) {
-    return next();
+    return NextResponse.next();
   }
 
   const auth = req.headers.get('authorization');
 
   if (auth) {
     try {
-      const [_scheme, encoded] = auth.split(' ');
-      const [user, pwd] = atob(encoded).split(':');
+      const authValue = auth.split(' ')[1];
+      const [user, pwd] = atob(authValue).split(':');
 
-      const validUser = process.env.SITE_USER || 'admin';
-      const validPass = process.env.SITE_PASS || 'password123';
-
-      if (user === validUser && pwd === validPass) {
-        return next();
+      if (user === process.env.SITE_USER && pwd === process.env.SITE_PASS) {
+        return NextResponse.next();
       }
     } catch (e) {
       console.error('Auth error:', e);
     }
   }
 
-  return new Response('Authentication Required', {
+  return new NextResponse('Auth Required', {
     status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-    },
+    headers: { 'WWW-Authenticate': 'Basic realm="Secure Area"' },
   });
 }
