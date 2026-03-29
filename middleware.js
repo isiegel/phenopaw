@@ -1,15 +1,14 @@
-import { NextResponse } from 'next/server';
-
 export default function middleware(req) {
-  const url = req.nextUrl;
+  const url = new URL(req.url);
 
-  // 1. Asset Bypass (Keep this to fix your image/icon issue!)
+  // 1. Asset & Icon Bypass
   if (
     url.pathname.startsWith('/assets') ||
     url.pathname.startsWith('/icons') ||
+    url.pathname.startsWith('/static') ||
     url.pathname.includes('.')
   ) {
-    return NextResponse.next();
+    return; // "return" in native Vercel middleware means "continue to the file"
   }
 
   const auth = req.headers.get('authorization');
@@ -17,18 +16,23 @@ export default function middleware(req) {
   if (auth) {
     try {
       const authValue = auth.split(' ')[1];
-      const [user, pwd] = atob(authValue).split(':');
+      const decoded = atob(authValue);
+      const [user, pwd] = decoded.split(':');
 
       if (user === process.env.SITE_USER && pwd === process.env.SITE_PASS) {
-        return NextResponse.next();
+        return; // Success, let them in
       }
     } catch (e) {
       console.error('Auth error:', e);
     }
   }
 
-  return new NextResponse('Auth Required', {
+  // 2. The Login Prompt
+  return new Response('Authentication Required', {
     status: 401,
-    headers: { 'WWW-Authenticate': 'Basic realm="Secure Area"' },
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Secure Area"',
+      'Content-Type': 'text/plain',
+    },
   });
 }
