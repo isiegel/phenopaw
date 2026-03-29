@@ -98,14 +98,15 @@
   </head>
   <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav id="main-nav" class="bg-white shadow-sm sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
+        <div class="flex justify-between items-center" id="nav-inner">
           <div class="flex items-center">
             <img
+              id="nav-logo"
               src="/assets/logo-type-phenopaw.png"
               alt="PhenoPaw"
-              class="h-8 w-auto"
+              class="w-auto"
             />
           </div>
           <div class="hidden md:flex space-x-8">
@@ -558,5 +559,6 @@
         </div>
       </div>
     </footer>
+    <script src="js/misc.js"></script>
   </body>
 </html>

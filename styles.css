@@ -28,3 +28,21 @@ body {
 .shopify-buy-button {
     /* Styles will be injected by Shopify */
 }
+
+#nav-inner {
+    height: 80px;
+    transition: height 0.3s ease;
+}
+
+#nav-logo {
+    height: 64px;
+    transition: height 0.3s ease;
+}
+
+#main-nav.scrolled #nav-inner {
+    height: 56px;
+}
+
+#main-nav.scrolled #nav-logo {
+    height: 32px;
+}
