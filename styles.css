@@ -1,18 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+:root {
+    --color-gradient-start: #667eea;
+    --color-gradient-end: #764ba2;
+    --color-accent: #9333ea;
+    --color-accent: #9333ea;
+}
+
 body {
     font-family: 'Inter', sans-serif;
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
 }
 
 .hero-pattern {
     background-image:
         radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%),
         radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%),
-        linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
     background-size: 100px 100px, 100px 100px, cover;
 }
 
@@ -23,6 +30,32 @@ body {
 .feature-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-link.active {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
 }
 
 .shopify-buy-button {
@@ -45,4 +78,16 @@ body {
 
 #main-nav.scrolled #nav-logo {
     height: 32px;
+}
+
+#mobile-menu-btn[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu-btn[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+#mobile-menu-btn[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }

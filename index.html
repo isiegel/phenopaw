@@ -102,31 +102,68 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center" id="nav-inner">
           <div class="flex items-center">
-            <img
-              id="nav-logo"
-              src="/assets/logo-type-phenopaw.png"
-              alt="PhenoPaw"
-              class="w-auto"
-            />
+            <a href="#" aria-label="Back to top">
+              <img
+                id="nav-logo"
+                src="/assets/logo-type-phenopaw.png"
+                alt="PhenoPaw"
+                class="w-auto"
+              />
+            </a>
           </div>
           <div class="hidden md:flex space-x-8">
             <a
               href="#features"
-              class="text-gray-700 hover:text-purple-600 transition"
+              data-nav="features"
+              class="nav-link text-gray-700 hover:text-purple-600 transition"
               >Features</a
             >
             <a
               href="#specs"
-              class="text-gray-700 hover:text-purple-600 transition"
+              data-nav="specs"
+              class="nav-link text-gray-700 hover:text-purple-600 transition"
               >Specs</a
             >
             <a
               href="#order"
-              class="text-gray-700 hover:text-purple-600 transition"
+              data-nav="order"
+              class="nav-link text-gray-700 hover:text-purple-600 transition"
               >Order</a
             >
           </div>
+          <!-- Hamburger button (mobile only) -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+          >
+            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          </button>
         </div>
+      </div>
+      <!-- Mobile menu drawer -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 flex flex-col space-y-4">
+        <a
+          href="#features"
+          data-nav="features"
+          class="nav-link mobile-nav-link text-gray-700 hover:text-purple-600 transition py-2"
+          >Features</a
+        >
+        <a
+          href="#specs"
+          data-nav="specs"
+          class="nav-link mobile-nav-link text-gray-700 hover:text-purple-600 transition py-2"
+          >Specs</a
+        >
+        <a
+          href="#order"
+          data-nav="order"
+          class="nav-link mobile-nav-link text-gray-700 hover:text-purple-600 transition py-2"
+          >Order</a
+        >
       </div>
     </nav>
 
@@ -555,7 +592,7 @@
         <div
           class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400"
         >
-          <p>&copy; 2026 PhenoPaw. All rights reserved.</p>
+          <p>&copy; <span id="copyright-year"></span> PhenoPaw. All rights reserved.</p>
         </div>
       </div>
     </footer>
