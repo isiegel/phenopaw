@@ -5,22 +5,20 @@ document.getElementById('copyright-year').textContent =
 // highlight active nav section
 const navLinks = document.querySelectorAll('.nav-link[data-nav]');
 
+const clearActiveNav = () => navLinks.forEach((link) => link.classList.remove('active'));
+
 // logo scroll shrink
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
   // reset nav active state when scrolled to top
-  if (window.scrollY === 0) {
-    navLinks.forEach((link) => link.classList.remove('active'));
-  }
+  if (window.scrollY === 0) clearActiveNav();
 });
 
 const logo = document.getElementById('nav-logo');
 
 // reset nav active state when clicking logo
-logo.closest('a').addEventListener('click', () => {
-  navLinks.forEach((link) => link.classList.remove('active'));
-});
+logo.closest('a').addEventListener('click', clearActiveNav);
 const sections = document.querySelectorAll('section[id]');
 
 const sectionObserver = new IntersectionObserver(
