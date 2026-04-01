@@ -27,7 +27,7 @@ export default function middleware(req) {
     }
   }
 
-  // 2. The Login Prompt
+  // 2. The ogin prompt
   return new Response('Authentication Required', {
     status: 401,
     headers: {
