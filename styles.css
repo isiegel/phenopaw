@@ -57,10 +57,6 @@ body {
     width: 100%;
 }
 
-.shopify-buy-button {
-    /* Styles will be injected by Shopify */
-}
-
 #nav-inner {
     height: 80px;
     transition: height 0.3s ease;
