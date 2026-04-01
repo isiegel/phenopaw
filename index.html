@@ -138,14 +138,23 @@
             aria-label="Toggle menu"
             aria-expanded="false"
           >
-            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-            <span class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+            <span
+              class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"
+            ></span>
+            <span
+              class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"
+            ></span>
+            <span
+              class="hamburger-bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"
+            ></span>
           </button>
         </div>
       </div>
       <!-- Mobile menu drawer -->
-      <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 flex flex-col space-y-4">
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden px-4 pb-4 flex flex-col space-y-4"
+      >
         <a
           href="#features"
           data-nav="features"
@@ -438,9 +447,9 @@
     <section id="order" class="py-20 bg-white">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold text-gray-900 mb-4">Get yours today</h2>
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Launching soon</h2>
           <p class="text-xl text-gray-600">
-            Limited initial production run. Reserve your unit now.
+            The first production run is in progress. Public ordering opens soon.
           </p>
         </div>
 
@@ -491,18 +500,24 @@
             </div>
 
             <div class="bg-white rounded-xl p-8 shadow-lg">
-              <!-- Replace this div with the Shopify Buy Button embed code (see README) -->
               <div
                 id="product-component"
                 class="min-h-[200px] flex items-center justify-center"
               >
-                <div class="text-center">
-                  <p class="text-gray-600 mb-4">
-                    Shopify Buy Button will appear here
+                <div class="w-full rounded-2xl border border-purple-100 bg-gradient-to-br from-purple-50 to-white p-8 text-center">
+                  <p class="text-sm font-semibold uppercase tracking-[0.2em] text-purple-600">
+                    Pre-Launch
                   </p>
-                  <p class="text-sm text-gray-500">
-                    See README for setup instructions
+                  <h3 class="mt-4 text-3xl font-bold text-gray-900">
+                    Launching Soon
+                  </h3>
+                  <p class="mt-4 text-base text-gray-600">
+                    Orders are not open yet. This page will switch to live checkout
+                    as soon as the first release is available.
                   </p>
+                  <div class="mt-6 inline-flex items-center justify-center rounded-lg bg-purple-600 px-8 py-4 text-base font-semibold text-white">
+                    Store Opens Soon
+                  </div>
                 </div>
               </div>
             </div>
@@ -592,7 +607,10 @@
         <div
           class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400"
         >
-          <p>&copy; <span id="copyright-year"></span> PhenoPaw. All rights reserved.</p>
+          <p>
+            &copy; <span id="copyright-year"></span> PhenoPaw. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
